@@ -2,6 +2,6 @@
   "name": "11ty Starter",
   "url": "localhost:8080",
   "authorName": "Mike Aparicio",
-  "description": "A quick template for Eleventy sites.",
+  "description": "A basic boilerplate for getting a new Eleventy site up and running.",
   "favicon": "/assets/images/favicon.svg"
 }
