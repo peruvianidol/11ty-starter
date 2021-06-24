@@ -15,6 +15,7 @@ A basic boilerplate for getting a new Eleventy site up and running.
 * SASS workflow (`_src/assets/scss/`)
 * 404 page
 * Current year shortcode
+* Date conversion shortcode [Month DD, YYYY]
 
 ## Eleventy Resources
 

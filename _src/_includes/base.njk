@@ -13,10 +13,14 @@
 <body>
 
   <header>
-    <h1>{% if title %}{{ title }}{% else %}{{ site.name }}{% endif %}</h1>
+    <h1><a href="/">{{ site.name }}</a></h1>
+    <nav>
+      <a href="/sample/">Sample Page</a>
+    </nav>
   </header>
 
   <main>
+    {% if title %}<h2>{{ title }}</h2>{% endif %}
     {{ content | safe }}
   </main>
 

@@ -17,8 +17,18 @@ code {
   padding: 2px 4px;
 }
 
+h1 a {
+  text-decoration: none;
+}
+
 a {
   color: inherit;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 footer {
