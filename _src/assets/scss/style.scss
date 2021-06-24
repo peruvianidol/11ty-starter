@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  margin-block-start: 0;
+}
+
+body {
+  max-width: 65ch;
+  margin-inline: auto;
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+code {
+  background-color: #eee;
+  padding: 2px 4px;
+}
+
+a {
+  color: inherit;
+}
+
+footer {
+  color: #777;
+  font-size: .875rem;
+}

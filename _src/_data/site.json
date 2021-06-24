@@ -1,0 +1,7 @@
+{
+  "name": "11ty Starter",
+  "url": "localhost:8080",
+  "authorName": "Mike Aparicio",
+  "description": "A quick template for Eleventy sites.",
+  "favicon": "/assets/images/favicon.svg"
+}
