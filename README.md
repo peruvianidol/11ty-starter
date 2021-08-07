@@ -6,9 +6,10 @@ A basic boilerplate for getting a new Eleventy site up and running.
 
 1. [**Use this template** on GitHub](https://github.com/peruvianidol/11ty-starter/generate)
 2. Follow the instructions to create a new repository from this template
-3. In the project directory, run `npm install`
-4. Edit `package.json` and `_src/_data/site.json`
-5. Run `npm start` to run Eleventy and open the site in a browser
+3. Clone the new repo locally
+4. In the project directory, run `npm install`
+5. Edit `package.json` and `_src/_data/site.json`
+6. Run `npm start` to run Eleventy and open the site in a browser
 
 ## Features
 
