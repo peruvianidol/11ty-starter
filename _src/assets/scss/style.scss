@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  margin-block-start: 0;
+  margin: 0;
 }
 
 body {
@@ -10,6 +10,10 @@ body {
   font-size: 100%;
   line-height: 1.5;
   padding: 1rem;
+}
+
+body :not(li):not(h1):not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 code {
