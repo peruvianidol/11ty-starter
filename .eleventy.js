@@ -28,7 +28,11 @@ module.exports = function(eleventyConfig) {
     dir: {
       input: '_src',
       output: '_site'
-    }
+    },
+    // set default template engine to Nunjucks
+    markdownTemplateEngine: 'njk',
+    dataTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk'
   };
 
 };
