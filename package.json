@@ -6,7 +6,7 @@
   "scripts": {
     "watch:sass": "sass --watch _src/assets/scss:_site/assets/css --no-source-map",
     "build:sass": "sass _src/assets/scss:_site/assets/css --no-source-map",
-    "watch:eleventy": "eleventy --serve",
+    "watch:eleventy": "eleventy --serve --incremental",
     "build:eleventy": "eleventy",
     "start": "npm-run-all build:sass --parallel watch:*",
     "build": "npm-run-all build:*"
