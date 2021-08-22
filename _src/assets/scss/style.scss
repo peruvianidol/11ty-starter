@@ -16,7 +16,7 @@ body {
   padding: 1rem;
 }
 
-body :not(li):not(h1):not(:last-child) {
+body :not(li):not(h1):not(:last-child):not(svg) {
   margin-bottom: 1rem;
 }
 
@@ -56,4 +56,17 @@ picture {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  > :not(:last-child) {
+    margin-right: .5em;
+  }
 }

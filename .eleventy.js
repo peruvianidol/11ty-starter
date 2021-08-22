@@ -1,6 +1,9 @@
 // require Luxon for date conversion
 const { DateTime } = require("luxon");
 
+// SVG sprite plugin
+const svgSprite = require("eleventy-plugin-svg-sprite");
+
 // Eleventy Image plugin
 const Image = require("@11ty/eleventy-img");
 const path = require('path');
@@ -64,6 +67,13 @@ module.exports = function(eleventyConfig) {
   // https://www.11ty.dev/docs/dates/#dates-off-by-one-day 
   eleventyConfig.addFilter("postDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toLocaleString(DateTime.DATE_FULL);
+  });
+
+  // SVG sprite
+  eleventyConfig.addPlugin(svgSprite, {
+    path: "./_src/assets/icons",
+    globalClasses: "icon",
+    svgShortcode: "icon"
   });
 
   return {
