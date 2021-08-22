@@ -1,9 +1,49 @@
-// requre Luxon for date conversion
+// require Luxon for date conversion
 const { DateTime } = require("luxon");
+
+// Eleventy Image plugin
+const Image = require("@11ty/eleventy-img");
+const path = require('path');
+
+// Image shortcode
+async function imageShortcode(src, alt, sizes = "100vw") {
+  let srcPrefix = `./_src/assets/images/`
+  src = srcPrefix + src
+  console.log(`Generating image(s) from:  ${src}`)
+  if(alt === undefined) {
+    throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`)
+  }  
+  let metadata = await Image(src, {
+    widths: [400, 800],
+    formats: ['avif', 'webp', 'jpeg'],
+    urlPath: "/assets/images/",
+    outputDir: "./_site/assets/images/",
+
+    filenameFormat: function (id, src, width, format, options) {
+      const extension = path.extname(src)
+      const name = path.basename(src, extension)
+      return `${name}-${width}w.${format}`
+    }
+  })  
+  let lowsrc = metadata.jpeg[0]
+  let highsrc = metadata.jpeg[metadata.jpeg.length - 1]  
+  return `<picture>
+    ${Object.values(metadata).map(imageFormat => {
+      return `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat.map(entry => entry.srcset).join(", ")}" sizes="${sizes}">`
+    }).join("\n")}
+    <img
+      src="${lowsrc.url}"
+      width="${highsrc.width}"
+      height="${highsrc.height}"
+      alt="${alt}"
+      loading="lazy"
+      decoding="async">
+  </picture>`
+}
 
 module.exports = function(eleventyConfig) {
   // Set directories to pass through to the _site folder
-  eleventyConfig.addPassthroughCopy("_src/assets/images/");
+  // eleventyConfig.addPassthroughCopy("_src/assets/images/");
 
   // Watch scss folder for changes
   eleventyConfig.addWatchTarget("./_src/assets/scss/");
@@ -15,6 +55,9 @@ module.exports = function(eleventyConfig) {
 
   // shortcode for inserting the current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+  // shortcode for responsive images
+  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 
   // convert date to [Month DD, YYYY], set timezone to UTC to ensure date is not off by one
   // https://moment.github.io/luxon/docs/class/src/datetime.js~DateTime.html
