@@ -45,16 +45,15 @@ async function imageShortcode(src, alt, sizes = "100vw") {
 }
 
 module.exports = function(eleventyConfig) {
-  // Set directories to pass through to the _site folder
-  // eleventyConfig.addPassthroughCopy("_src/assets/images/");
-
-  // Watch scss folder for changes
-  eleventyConfig.addWatchTarget("./_src/assets/scss/");
 
   // open a browser window on --watch
+  // eleventyConfig.setBrowserSyncConfig({
+  //   open: true
+  // });
+
   eleventyConfig.setBrowserSyncConfig({
-    open: true,
-  });
+		files: './_site/assets/css/**/*.css',
+	});
 
   // shortcode for inserting the current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
