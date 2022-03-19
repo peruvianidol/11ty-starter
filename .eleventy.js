@@ -1,6 +1,9 @@
 // require Luxon for date conversion
 const { DateTime } = require("luxon");
 
+// Sass
+const sass = require("sass");
+
 // Eleventy Image plugin
 const Image = require("@11ty/eleventy-img");
 const path = require('path');
@@ -43,14 +46,17 @@ async function imageShortcode(src, alt, sizes = "100vw") {
 
 module.exports = function(eleventyConfig) {
 
-  // open a browser window on --watch
-  // eleventyConfig.setBrowserSyncConfig({
-  //   open: true
-  // });
-
-  eleventyConfig.setBrowserSyncConfig({
-		files: './_site/assets/css/**/*.css',
-	});
+  // Compile SCSS to CSS
+  eleventyConfig.addTemplateFormats("scss");
+  eleventyConfig.addExtension("scss", {
+    outputFileExtension: "css",
+    compile: async function(inputContent) {
+      let result = sass.compileString(inputContent);
+      return async (data) => {
+        return result.css;
+      };
+    }
+  });
 
   // shortcode for inserting the current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
