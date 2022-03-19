@@ -46,17 +46,12 @@ async function imageShortcode(src, alt, sizes = "100vw") {
 
 module.exports = function(eleventyConfig) {
 
-  // Compile SCSS to CSS
-  eleventyConfig.addTemplateFormats("scss");
-  eleventyConfig.addExtension("scss", {
-    outputFileExtension: "css",
-    compile: async function(inputContent) {
-      let result = sass.compileString(inputContent);
-      return async (data) => {
-        return result.css;
-      };
-    }
-  });
+  // open a browser window on --watch
+  // eleventyConfig.setBrowserSyncConfig({
+  //   open: true
+  // });
+
+  eleventyConfig.addWatchTarget("./_src/assets/scss/");
 
   // shortcode for inserting the current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
