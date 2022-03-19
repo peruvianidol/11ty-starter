@@ -15,7 +15,6 @@ A basic boilerplate for getting a new Eleventy site up and running.
 
 * SASS workflow (`_src/assets/scss/`)
 * [Responsive image plugin](https://github.com/11ty/eleventy-img)
-* [SVG sprite plugin](https://github.com/patrickxchong/eleventy-plugin-svg-sprite)
 * Current year shortcode
 * Date conversion shortcode [Month DD, YYYY]
 * 404 page
