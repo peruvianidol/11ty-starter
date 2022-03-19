@@ -13,11 +13,11 @@ A basic boilerplate for getting a new Eleventy site up and running.
 
 ## Features
 
-* SASS workflow (`_src/assets/scss/`)
-* [Responsive image plugin](https://github.com/11ty/eleventy-img)
+* Sass workflow (`_src/assets/scss/`)
 * Current year shortcode
 * Date conversion shortcode [Month DD, YYYY]
 * 404 page
+* (Temporarily removed SVG sprite and image plugins)
 
 ## Eleventy Resources
 

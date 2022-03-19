@@ -11,21 +11,7 @@
 </head>
 <body>
 
-  <header>
-    <h1><a href="/">{{ site.name }}</a></h1>
-    <nav>
-      <a href="/sample/">Sample Page</a>
-    </nav>
-  </header>
-
-  <main>
-    {% if title %}<h2>{{ title }}</h2>{% endif %}
-    {{ content | safe }}
-  </main>
-
-  <footer>
-    &copy; {% year %} <a href="https://mikeaparicio.com">Mike Aparicio</a> &middot; All your rights are belong to us (j/k do whatever you want, idc)
-  </footer>
+  {{ content | safe }}  
 
 </body>
 </html>
